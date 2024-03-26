@@ -1,4 +1,5 @@
-import { JSX } from "solid-js";
+import clsx from "clsx";
+import { Component, JSX } from "solid-js";
 
 export const ButtonExample = () => {
   return (
@@ -12,7 +13,7 @@ export const ButtonExample = () => {
       <button class="bg-blue-600 text-white py-1 px-4 shadow-sm rounded-md cursor-not-allowed opacity-50">
         禁用主按钮
       </button>
-      <button class="rounded-md bg-white py-1 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:scale-95">
+      <button class="rounded-md bg-white text-gray-900 py-1 px-4  shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:scale-95">
         默认按钮
       </button>
       <button class="rounded-md bg-white py-1 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 cursor-not-allowed opacity-50">
@@ -34,7 +35,30 @@ export const ButtonExample = () => {
       <button>
         <SvgSpinners180Ring />
       </button>
+      <Button type="primary" />
+      <Button type="default" />
     </div>
+  );
+};
+
+interface IButtonProps {
+  type: "default" | "primary";
+}
+
+export const Button: Component<IButtonProps> = (props) => {
+  return (
+    <button
+      class={clsx(
+        "py-1 px-4 shadow-sm rounded-md active:scale-95",
+        {
+          default: "bg-white text-gray-900 hover:bg-gray-50",
+          primary:
+            "bg-blue-600 hover:bg-blue-500 text-white ring-1 ring-inset ring-gray-300",
+        }[props.type]
+      )}
+    >
+      组件按钮
+    </button>
   );
 };
 

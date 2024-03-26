@@ -6,8 +6,7 @@ import { For, JSX } from "solid-js";
 import { createStore } from "solid-js/store";
 import App from "./App";
 import "./index.css";
-import { ButtonExample } from "./pages/ButtonExample";
-import { PromiseExample } from "./pages/PromiseExample";
+import { Button } from "./pages/ButtonExample";
 
 const root = document.getElementById("root");
 
@@ -20,8 +19,8 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 const Main = () => {
   // 可以通过这样实现动态添加或删除路由
   const [routes, setRoutes] = createStore<RouterTable[]>([
-    { path: "/button-example", component: ButtonExample },
-    { path: "/promise-example", component: PromiseExample },
+    { path: "/button-example", component: Button },
+    // { path: "/promise-example", component: PromiseExample },
   ]);
   // const [getRoutes, setRoutes] = createSignal<RouterTable[]>([
   //   { path: "/button-example", component: ButtonExample },
