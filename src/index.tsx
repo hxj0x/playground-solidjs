@@ -7,6 +7,7 @@ import { createStore } from "solid-js/store";
 import App from "./App";
 import "./index.css";
 import { ButtonExample } from "./pages/ButtonExample";
+import { PromiseExample } from "./pages/PromiseExample";
 
 const root = document.getElementById("root");
 
@@ -20,32 +21,32 @@ const Main = () => {
   // 可以通过这样实现动态添加或删除路由
   const [routes, setRoutes] = createStore<RouterTable[]>([
     { path: "/button-example", component: ButtonExample },
-    { path: "/button-example223", component: ButtonExample },
+    { path: "/promise-example", component: PromiseExample },
   ]);
   // const [getRoutes, setRoutes] = createSignal<RouterTable[]>([
   //   { path: "/button-example", component: ButtonExample },
   //   { path: "/button-example223", component: ButtonExample },
   // ]);
 
-  setTimeout(() => {
-    setRoutes(
-      (route, i) => {
-        console.log("do");
-        return route.path === "/button-example";
-      },
-      "path",
-      "/button-example-abc"
-    );
-  }, 5_000);
+  // setTimeout(() => {
+  //   setRoutes(
+  //     (route, i) => {
+  //       console.log("do");
+  //       return route.path === "/button-example";
+  //     },
+  //     "path",
+  //     "/button-example-abc"
+  //   );
+  // }, 5_000);
 
   return (
     <div>
-      hello
+      {/* hello */}
       <div>
         <Router root={App}>
           <For each={routes}>
             {(item, getI) => {
-              console.log("rerender", item.path);
+              // console.log("rerender", item.path);
               return <Route path={item.path} component={item.component} />;
             }}
           </For>
