@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Component, JSX } from "solid-js";
+import { Component, JSX, mergeProps } from "solid-js";
 
 export const ButtonExample = () => {
   return (
@@ -36,16 +36,23 @@ export const ButtonExample = () => {
         <SvgSpinners180Ring />
       </button>
       <Button type="primary" />
-      <Button type="default" />
+      <Button />
     </div>
   );
 };
 
 interface IButtonProps {
-  type: "default" | "primary";
+  type?: "default" | "primary";
 }
 
 export const Button: Component<IButtonProps> = (props) => {
+  const newProps = mergeProps(
+    {
+      type: "default",
+    } as const,
+    props
+  );
+
   return (
     <button
       class={clsx(
@@ -54,7 +61,7 @@ export const Button: Component<IButtonProps> = (props) => {
           default: "bg-white text-gray-900 hover:bg-gray-50",
           primary:
             "bg-blue-600 hover:bg-blue-500 text-white ring-1 ring-inset ring-gray-300",
-        }[props.type]
+        }[newProps.type]
       )}
     >
       组件按钮
