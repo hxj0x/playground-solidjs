@@ -70,9 +70,9 @@
     "peerDependencies",
     "cSpell.userWords"
   ],
+  "tailwindCSS.classAttributes": ["class", "className", "classList", "ngClass"],
   "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "vim.foldfix": true,
   "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",

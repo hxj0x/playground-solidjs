@@ -1,7 +1,32 @@
 import clsx from "clsx";
-import { Component, JSX, mergeProps } from "solid-js";
+import {
+  Component,
+  ComponentProps,
+  JSX,
+  createSignal,
+  splitProps,
+} from "solid-js";
 
 export const ButtonExample = () => {
+  let i = 0;
+  const [getHtmlType, setHtmlType] = createSignal<
+    "button" | "submit" | "reset"
+  >("button");
+
+  const changeType = () => {
+    i++;
+    const mod = i % 3;
+    // console.log(mod);
+    console.log(getHtmlType());
+    if (mod === 0) {
+      setHtmlType("button");
+    } else if (mod === 1) {
+      setHtmlType("submit");
+    } else if (mod === 2) {
+      setHtmlType("reset");
+    }
+  };
+
   return (
     <div class={"flex gap-2 items-center justify-center h-full w-full"}>
       <button class="bg-blue-600 hover:bg-blue-500 text-white py-1 px-4 shadow-sm rounded-md active:scale-95">
@@ -35,36 +60,46 @@ export const ButtonExample = () => {
       <button>
         <SvgSpinners180Ring />
       </button>
-      <Button type="primary" />
-      <Button />
+      <Button htmlType="button" type="primary">
+        组件按钮1
+      </Button>
+      <Button htmlType={getHtmlType()} onclick={changeType}>
+        组件按钮2
+      </Button>
     </div>
   );
 };
 
-interface IButtonProps {
+interface IButtonProps extends Omit<ComponentProps<"button">, "type"> {
   type?: "default" | "primary";
+  shape?: "default" | "circle" | "round";
+  danger?: boolean;
+  loading?: boolean;
+  htmlType?: "submit" | "reset" | "button";
 }
 
 export const Button: Component<IButtonProps> = (props) => {
-  const newProps = mergeProps(
-    {
-      type: "default",
-    } as const,
-    props
-  );
+  const [local, restProps] = splitProps(props, [
+    "type",
+    "shape",
+    "danger",
+    "loading",
+    "htmlType",
+    "class",
+    "children",
+  ]);
+
+  const className = () => {
+    return clsx(
+      "py-1 px-4 shadow-sm rounded-md",
+      "bg-red-300" && local.type === "default",
+      local.class
+    );
+  };
 
   return (
-    <button
-      class={clsx(
-        "py-1 px-4 shadow-sm rounded-md active:scale-95",
-        {
-          default: "bg-white text-gray-900 hover:bg-gray-50",
-          primary:
-            "bg-blue-600 hover:bg-blue-500 text-white ring-1 ring-inset ring-gray-300",
-        }[newProps.type]
-      )}
-    >
-      组件按钮
+    <button type={local.htmlType} {...restProps} class={className()}>
+      {local.children}
     </button>
   );
 };
