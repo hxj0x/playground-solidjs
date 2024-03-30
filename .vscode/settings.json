@@ -87,6 +87,10 @@
   "workbench.tree.enableStickyScroll": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.guides.bracketPairs": "active",
+  // "editor.language.colorizedBracketPairs": [
+  //   ["<", "</"],
+  //   ["<", "/>"]
+  // ],
   "editor.matchBrackets": "always",
   "javascript.preferences.importModuleSpecifier": "shortest",
   "typescript.preferences.importModuleSpecifier": "shortest",

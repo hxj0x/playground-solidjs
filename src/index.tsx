@@ -6,7 +6,9 @@ import { For, JSX } from "solid-js";
 import { createStore } from "solid-js/store";
 import App from "./App";
 import "./index.css";
+import { Layout } from "./layout";
 import { ButtonExample } from "./pages/ButtonExample";
+import { DiscordPage } from "./pages/discord";
 
 const root = document.getElementById("root");
 
@@ -20,6 +22,8 @@ const Main = () => {
   // 可以通过这样实现动态添加或删除路由
   const [routes, setRoutes] = createStore<RouterTable[]>([
     { path: "/button-example", component: ButtonExample },
+    { path: "/discord-page", component: DiscordPage },
+    { path: "/", component: Layout },
     // { path: "/promise-example", component: PromiseExample },
   ]);
   // const [getRoutes, setRoutes] = createSignal<RouterTable[]>([
@@ -39,19 +43,14 @@ const Main = () => {
   // }, 5_000);
 
   return (
-    <div>
-      {/* hello */}
-      <div>
-        <Router root={App}>
-          <For each={routes}>
-            {(item, getI) => {
-              // console.log("rerender", item.path);
-              return <Route path={item.path} component={item.component} />;
-            }}
-          </For>
-        </Router>
-      </div>
-    </div>
+    <Router root={App}>
+      <For each={routes}>
+        {(item, getI) => {
+          // console.log("rerender", item.path);
+          return <Route path={item.path} component={item.component} />;
+        }}
+      </For>
+    </Router>
   );
 };
 render(Main, root!);
