@@ -9,6 +9,7 @@ import "./index.css";
 import { Layout } from "./layout";
 import { ButtonExample } from "./pages/ButtonExample";
 import { DiscordPage } from "./pages/discord";
+import { LoginPage } from "./pages/login/loginPage";
 
 const root = document.getElementById("root");
 
@@ -24,6 +25,7 @@ const Main = () => {
     { path: "/button-example", component: ButtonExample },
     { path: "/discord-page", component: DiscordPage },
     { path: "/", component: Layout },
+    { path: "/login", component: LoginPage },
     // { path: "/promise-example", component: PromiseExample },
   ]);
   // const [getRoutes, setRoutes] = createSignal<RouterTable[]>([

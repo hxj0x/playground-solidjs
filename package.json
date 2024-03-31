@@ -19,8 +19,9 @@
     "vite-plugin-solid": "^2.10.2"
   },
   "dependencies": {
+    "@ant-design/icons-svg": "^4.4.2",
     "@solidjs/router": "^0.13.1",
-    "solid-js": "^1.8.16",
-    "clsx": "^2.1.0"
+    "clsx": "^2.1.0",
+    "solid-js": "^1.8.16"
   }
 }
