@@ -26,7 +26,7 @@ export const LoginPage = () => {
               <input
                 type="text"
                 /*  focus:ring-2 focus:ring-indigo-600 focus:ring-inset ring-1 ring-gray-300  */
-                class=" shadow-sm block outline-none pl-8 pr-4 py-2 rounded flex-1 border-2 border-gray-300 focus:border-blue-600"
+                class=" shadow-sm block outline-none pl-8 pr-4 py-2 rounded flex-1 border-2 border-gray-400 focus:border-blue-600"
                 placeholder="账号"
               />
               <div class="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -41,7 +41,7 @@ export const LoginPage = () => {
             <input
               type={getPasswordInputType()}
               /* focus:ring-2 focus:ring-indigo-600 focus:ring-inset ring-1 ring-gray-300 */
-              class="shadow-sm block outline-none pl-8 pr-4 py-2 rounded flex-1 border-2 border-gray-300 focus:border-blue-600"
+              class="shadow-sm block outline-none pl-8 pr-4 py-2 rounded flex-1 border-2 border-gray-400 focus:border-blue-600"
               placeholder="密码"
             />
             <button
@@ -64,21 +64,24 @@ export const LoginPage = () => {
                 type="checkbox"
                 name="remeberMe"
                 id="remeberMe"
-                class="mr-2"
+                class="h-4 w-4 border-2 border-gray-400 focus:border-blue-600 mr-2 focus:ring-0 focus:ring-transparent rounded outline-zinc-600 focus-visible:outline-zinc-500"
               />
-              <label for="remeberMe" class="text-sm">
+              <label for="remeberMe" class="text-sm ">
                 记住我
               </label>
             </div>
             <a
               href="#"
-              class="text-blue-800 hover:text-blue-600 hover:underline text-sm"
+              class="text-blue-600 hover:text-blue-400 hover:underline text-sm"
             >
               忘记密码
             </a>
           </div>
           <div class="mb-4 w-64 flex">
-            <button type="button" class="flex-1 bg-blue-600 text-white">
+            <button
+              type="button"
+              class="bg-blue-600 hover:bg-blue-500 text-white py-1 px-4 shadow-sm rounded active:translate-y-0.5 flex-1"
+            >
               登录
             </button>
           </div>
