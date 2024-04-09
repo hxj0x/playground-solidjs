@@ -103,7 +103,7 @@ export const LoginPage = () => {
   );
 };
 
-const PasswordIcon = () => {
+export const PasswordIcon = () => {
   return (
     <svg
       viewBox="64 64 896 896"
