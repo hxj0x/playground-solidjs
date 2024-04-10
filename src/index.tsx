@@ -5,6 +5,7 @@ import { Route, Router } from "@solidjs/router";
 import { For, JSX } from "solid-js";
 import { createStore } from "solid-js/store";
 import App from "./App";
+import { DatepickerPage } from "./components/DatepickerPage";
 import "./index.css";
 import { Layout } from "./layout";
 import { ButtonExample } from "./pages/ButtonExample";
@@ -26,6 +27,7 @@ const Main = () => {
     { path: "/discord-page", component: DiscordPage },
     { path: "/", component: Layout },
     { path: "/login", component: LoginPage },
+    { path: "/datepicker", component: DatepickerPage },
     // { path: "/promise-example", component: PromiseExample },
   ]);
   // const [getRoutes, setRoutes] = createSignal<RouterTable[]>([
