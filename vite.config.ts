@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 // import devtools from 'solid-devtools/vite';
@@ -16,6 +18,26 @@ export default defineConfig({
   },
   build: {
     // target: "esnext",
-    minify: false,
+    // minify: false,
+  },
+  test: {
+    environment: "jsdom",
+    pool: "forks",
+    poolOptions: {
+      forks: {
+        isolate: false,
+      },
+    },
+    globals: true,
+    deps: {
+      optimizer: {
+        web: {
+          exclude: ["solid-js"],
+        },
+      },
+    },
+  },
+  resolve: {
+    conditions: ["development", "browser"],
   },
 });

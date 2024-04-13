@@ -10,6 +10,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "vitest": "^1.5.0",
+    "@solidjs/testing-library": "^0.8.4",
+    "@testing-library/jest-dom": "^5.16.4",
+    "jsdom": "latest",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "solid-devtools": "^0.29.3",
@@ -21,7 +25,8 @@
   "dependencies": {
     "@ant-design/icons-svg": "^4.4.2",
     "@floating-ui/dom": "^1.6.3",
-    "@solidjs/router": "^0.13.1",
+    "@solid-primitives/props": "^3.1.11",
+    "@solidjs/router": "^0.13.2",
     "@tailwindcss/forms": "^0.5.7",
     "clsx": "^2.1.0",
     "solid-js": "^1.8.16"
