@@ -10,6 +10,7 @@ import "./index.css";
 import { Layout } from "./layout";
 import { ButtonExample } from "./pages/ButtonExample";
 import { DiscordPage } from "./pages/discord";
+import { CollapsibleTestPage } from "./pages/headless/CollapsibleTestPage";
 import { HeadlessTestPage } from "./pages/headless/HeadLessTestPage";
 import { LoginPage } from "./pages/login/loginPage";
 
@@ -30,6 +31,7 @@ const Main = () => {
     { path: "/login", component: LoginPage },
     { path: "/datepicker", component: DatepickerPage },
     { path: "/HeadlessTestPage", component: HeadlessTestPage },
+    { path: "/CollapsibleTestPage", component: CollapsibleTestPage },
     // { path: "/promise-example", component: PromiseExample },
   ]);
   // const [getRoutes, setRoutes] = createSignal<RouterTable[]>([
