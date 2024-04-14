@@ -59,3 +59,17 @@ export function createControllableBooleanSignal(
 
   return [value, setValue] as const;
 }
+
+/**
+ * Creates a simple reactive Array state with a getter, setter and a fallback value of `[]`,
+ * that can be controlled with `value` and `onChange` props.
+ */
+export function createControllableArraySignal<T>(
+  props: CreateControllableSignalProps<Array<T>>
+) {
+  const [_value, setValue] = createControllableSignal(props);
+
+  const value: Accessor<Array<T>> = () => _value() ?? [];
+
+  return [value, setValue] as const;
+}

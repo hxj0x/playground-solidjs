@@ -1,5 +1,7 @@
 import { JSX } from "solid-js";
+
 import { isFunction } from "./assertion";
+import { isMac } from "./platform";
 
 /** Call a JSX.EventHandlerUnion with the event. */
 export function callHandler<T, E extends Event>(
@@ -15,4 +17,23 @@ export function callHandler<T, E extends Event>(
   }
 
   return event?.defaultPrevented;
+}
+
+/** Create a new event handler which calls all given handlers in the order they were chained with the same event. */
+export function composeEventHandlers<T>(
+  handlers: Array<JSX.EventHandlerUnion<T, any> | undefined>
+) {
+  return (event: any) => {
+    for (const handler of handlers) {
+      callHandler(event, handler);
+    }
+  };
+}
+
+export function isCtrlKey(e: Pick<KeyboardEvent, "ctrlKey" | "metaKey">) {
+  if (isMac()) {
+    return e.metaKey && !e.ctrlKey;
+  }
+
+  return e.ctrlKey && !e.metaKey;
 }

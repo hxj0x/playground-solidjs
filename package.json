@@ -27,6 +27,9 @@
   "dependencies": {
     "@ant-design/icons-svg": "^4.4.2",
     "@floating-ui/dom": "^1.6.3",
+    "@internationalized/date": "^3.5.2",
+    "@internationalized/number": "^3.5.1",
+    "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/props": "^3.1.11",
     "@solid-primitives/refs": "^1.0.8",
     "@solid-primitives/utils": "^6.2.3",
